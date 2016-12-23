@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="/common/jquery-1.7.1.min.js"></script>
+    <script src="/common/ewoo/easyDialog.js"></script>
+    <title>测试</title>
+</head>
+<script type="text/javascript">
+    var vm = {
+                redisInfo:{
+                    url:"/hyinfo/redis/getkey",
+                    para:'txt|require|txt必须,rdsip|require,',
+                    autoLoad:false,
+                    afterQuery:function(json){
+                        if(json.res==1){
+                            
+                        }
+                    }
+                },
+                onQuery:function(){
+                    vm.redisInfo.query();
+                },
+            }
+    // $(function(){
+    //     vm.redisInfo.query();
+    // })
+</script>
+<style type="text/css">
+    .click{
+        background-color: #ff0;
+    }
+</style>
+<body>
+    txt<input e-bind="txt"></input>
+    ip<input e-bind="rdsip"></input>
+    <button type="button" onclick="vm.onQuery();">提交</button>
+
+
+    <div style="border: 1px solid;width:100%;height: 120px;position: fixed;left: 0;bottom: 0;">
+        <ul e-extend="mouseover|click">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+    </div>
+</body>
+</html>

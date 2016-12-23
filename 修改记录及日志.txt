@@ -1,0 +1,20 @@
+
+
+
+
+
+
+#1.关于div,span,li等元素支持value和e-bind属性的处理
+1).底层相应点击事件（event.js中），点击之后，将出发vm.set([e-bind],value);
+2)如果按钮组，需要在父节点上绑定e-bind;如:
+ <span e-bind="status"  class="option" e-group="current">
+	<span class="current" value="" >不限</span>
+	<span value="1" >未配载</span>
+	<span value="2" >已配载</span>
+</span>
+3)初始化赋值，选定的状态class 统一都是"current"
+
+
+#2.关于选定状态的处理，所有的选定操作都是增加class  current；
+系统设置一个初始化的current，如果需要改变样式可以用父类去约束条件；
+如: .class .current{}
